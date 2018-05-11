@@ -45,3 +45,5 @@ it will be marked with an *
 >`git pull origin {branch name}`
 2. Once potential conflicts are resolved, the merging of the branches can occur
 >`git merge  {branch name to merge to}`
+3. To delete a branch, use
+> git branch -d {branch}
