@@ -1,2 +1,7 @@
-# web_trends_lab_1
-testing for lab 1 in web trends
+# Web Trends Git Lab 1
+======
+
+This is a test for the Lab in Web Trends where we are learning git and github.
+
+
+
