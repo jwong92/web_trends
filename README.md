@@ -23,4 +23,15 @@ This is a test for the Lab in Web Trends where we are learning git and github.
 10. After resolving any conflicts you are ready to push
 ...`git push origin master`
 
+## Git Cloning
+1. Navigate to another project and copy the project src url. Using command line, clone the git project from a remote source
+...`git clone {git url}`
+
+## Branching
+1. To create a new branch from the current commit
+...`git branch {new branch name}`
+2. To use a branch from the project
+... `git checkout {branch name}`
+or
+...`git checkout {commit hash}`
 
