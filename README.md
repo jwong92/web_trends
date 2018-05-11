@@ -34,4 +34,5 @@ This is a test for the Lab in Web Trends where we are learning git and github.
 ... `git checkout {branch name}`
 or
 ...`git checkout {commit hash}`
-
+3. To delete a branch, use
+> git branch -d {branch}
