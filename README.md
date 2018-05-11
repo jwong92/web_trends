@@ -34,4 +34,13 @@ This is a test for the Lab in Web Trends where we are learning git and github.
 ... `git checkout {branch name}`
 or
 ...`git checkout {commit hash}`
+3. To determine which branch you're on, use
+...`git branch`
+... it will be marked with an *
 
+## Merging Branches
+- Branches can be merged so commits will follow a shared branch rather than two separate ones. This happens when parallel branches no longer need to be parallel, and development can continue on the same path. This allows a project to have multiple versions simultaneously and switching between versions is seamless.
+1. Prior to merging, pull from the branch you wish to push from
+...`git pull origin {branch name}`
+2. Once potential conflicts are resolved, the merging of the branches can occur
+...`git merge  {branch name to merge to}`
