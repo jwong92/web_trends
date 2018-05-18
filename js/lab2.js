@@ -1,4 +1,5 @@
 "use strict";
+//PART ONE
 // GROUP OF ENUMS ARE A SET OF CONSTANTS TO BE USED
 var days;
 (function (days) {
@@ -38,7 +39,6 @@ var earthPhysics;
 // console.log(days[0]);
 //HTML ELEMENTS
 var pTodayDate = document.getElementById("p--today-date");
-console.log(pTodayDate);
 //TYPESCRIPT CAN BE TYPED TO TYPESCRIPT TYPE OR OBJECT, SUCH AS DATE WHICH IS A PREDEFINED INTERFACE
 //TODAY IS A TYPE DATE, AND IS ASSIGNED A NEW DATE
 var today = new Date();
@@ -56,4 +56,44 @@ enum days {
     Friday,
     Saturday
 }
-*/ 
+*/
+// PART TWO
+var birthday = document.getElementById("input--date-picker");
+var submitBtn = document.getElementById("button--birthday");
+var pBirthdayMessage = document.getElementById("p--birthday-message");
+var inputDatePicker = document.getElementById("input--date-picker");
+//ON CLICK OF THE BUTTON, GRAB THE INPUTS
+submitBtn.addEventListener("click", function () {
+    var userBirthday = birthday.value;
+    var userBDayDate = new Date(userBirthday);
+    pBirthdayMessage.innerHTML = makeDateString(userBDayDate);
+    // let dateArr = userBirthday.split('-');
+    // let birthdate : Object = {
+    //     year: dateArr[0],
+    //     month: dateArr[1],
+    //     day: dateArr[2]
+    // }
+    // birthdayMessage(birthdate);
+});
+function birthdayMessage(birthdate) {
+    //GET THE DAY OF THE WEEK AND YEAR OF THIS YEAR FROM THE DATE
+    //CREATE A NEW UTC DATE TO GET THE ACTUAL DATE OF THE WEEK
+    var today = new Date();
+    var thisYear = today.getFullYear();
+    var thisMonth = birthdate.month;
+}
+// PART TWO ANSWER
+function makeDateString(inputDate) {
+    //if today is users birthday
+    if (inputDate.getDate === today.getDate() && (inputDate.getMonth() === today.getMonth())) {
+        return 'Happy Birthday';
+    }
+    //today is not their birthday
+    var thisYearsBirthday = new Date();
+    //SETTING THE DATE WITH THEIR FIELDS TO GET THE DAY
+    thisYearsBirthday.setDate(inputDate.getDate());
+    thisYearsBirthday.setFullYear(today.getFullYear());
+    thisYearsBirthday.setMonth(inputDate.getMonth());
+    //MONTH AND DATE ARE WHAT IS PROVIDED
+    return "Your birthday is: " + days[thisYearsBirthday.getDay()] + " " + months[inputDate.getMonth()] + " " + inputDate.getDate() + ", " + today.getFullYear();
+}
