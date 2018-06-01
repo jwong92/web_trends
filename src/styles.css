@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+
+#nav li {
+    list-style-type: none;
+}
+
+.list-2, .list-3 {
+    display: none;
+}
+
+.list-1 {
+    display: inline;
+}
+
+.list-1:hover {
+    background-color: peachpuff;
+}
+
+#nav li:hover .list-2 {
+    display: block;
+}
+
+.list-2:hover{
+    background-color: paleturquoise;
+}
+
+.list-2:hover .list-3 {
+    display: block;
+}
+
+.list-3:hover {
+    background-color: whitesmoke;
+}
+
+
+
