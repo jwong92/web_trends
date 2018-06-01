@@ -1,0 +1,7 @@
+.selected {
+    background-color: lightcoral;
+}
+
+li:hover {
+    background-color: lightblue;
+}

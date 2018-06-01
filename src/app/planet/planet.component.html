@@ -1,0 +1,43 @@
+<h1>{{title}}</h1>
+
+<!-- USING TEMPLATES INITIALIZED WITH TYPESCRIPT -->
+<!-- THIS IS WHERE THE PLANET WILL DISPLAY WHEN CLICKED ON -->
+<div *ngIf="planet" id="{{planet.id}}">id: {{planet.id}} name: {{planet.name}}</div>
+<!-- <div id="{{moon.id}}">{{moon.name}}</div> -->
+
+<!-- USING AN ARRAY THE LONG WAY -->
+<!-- <div id="planets">
+  <ol>
+    <div id="{{planets[0].id}}">{{planets[0].name}}</div>
+    <div id="{{planets[1].id}}">{{planets[1].name}}</div>
+    <div id="{{planets[3].id}}">{{planets[3].name}}</div>
+  </ol>
+</div> -->
+
+<!-- USE CLICK TO USE THE FUNCTIONALITY IN THE PREVIOUS COMPONENT -->
+<div id="planets">
+  <ol>
+    <li *ngFor="let p of planets" 
+    id="{{p.id}}" 
+    (click)="setPlanet(p)"
+    [class.selected]="p === planet">
+    {{p.name}}</li>
+  </ol>
+</div>
+
+
+
+<p>
+  planet works!
+</p>
+<p>This html is coming to you from planet.component.html or planet.component.ts</p>
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+
+<footer>
+  &copy; {{year}}
+</footer>
