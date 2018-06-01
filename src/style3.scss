@@ -1,0 +1,59 @@
+// FONT-SIZES
+$big-font: 25px;
+$med-font: 18px;
+$sm-font: 14px;
+
+// COLORS 
+$lightgrey: lightgrey;
+
+li {
+    list-style-type: none;
+    // &:hover > ul {
+    //     display: block;
+    // }
+    &:hover {
+        background-color: $lightgrey;
+    }
+}
+
+header {
+    nav {
+        .links {
+            font-size: $big-font;
+            // thes arrows represent being children of links
+            > li {
+                display: inline;
+                position: relative;
+
+                .nested-links {
+                    padding-left: 0;
+                    position: absolute;
+                    left: 0;
+                    display: none;
+                    font-size: $med-font;
+
+                    > li {
+                        position: relative;
+
+                        .sublinks {
+                            display: none;
+                            position: absolute;
+                            top: 0;
+                            left: 50%;
+                            font-size: $sm-font;
+                            width: 100%;
+                        }
+                        
+                        &:hover > .sublinks {
+                            display: block;
+                        }
+                    }
+                }
+
+                &:hover > .nested-links {
+                    display: block;
+                }
+            }
+        }
+    }
+}
