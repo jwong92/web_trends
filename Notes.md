@@ -139,3 +139,9 @@ ng serve -o
     this.planetService.getPlanets().subscribe(ps => this.planets = ps);
   }
 ```
+
+### Cloning The Project
+* If you clone the project to another directory, you'll get errors
+* First, run `$ npm install` to install all necessary components
+* Run `$ npm audit fix` and will show you what needs to be fixed
+* Run `ng server -o` again to run it
