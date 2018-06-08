@@ -1,27 +1,41 @@
-# Lab5
+# Lab 5
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
+## Part 1: Model
+Construct person class/model `ng generate class [name]`
+* This will be made in the app directory
+```
+id: number
+firstName: string
+lastName: string
+dateOfBirth: Date
+```
+A single file is produced when making a class, which doesn't create too many conflicts in git, as it just adds files to the project
 
-## Development server
+* Typescript doesn't want methods in their models
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Part 2: Services
+Construct a service for the people class `ng generate service [name]`
+* Like models, services are made with new files without altering existing files
+    * Service will manage a list of people based on the Person object
+    * Define new methods to return the array containing the Person objects
+    * Don't forget to include the reactive.js library to allow for asynchronous loading
+```
+import {Person} from './person'
+import {Observable, of} from 'rxjs'
+export class PeopleService {
 
-## Code scaffolding
+  people: Person[] = [
+    // array of persons inside the people array - these are typed to the model
+    {id: 1, firstName: 'Bill', lastName: 'Wright', dateOfBirth: new Date('01/01/1950')},
+    {id: 2, firstName: 'Bernie', lastName: 'Monette', dateOfBirth: new Date('01/01/1955')},
+    {id: 3, firstName: 'Sean', lastName: 'Doyle', dateOfBirth: new Date('01/01/1970')}
+  ];
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  // calling the getPeople method will return the above array
+  getPeople(): Observable<Person[]> {
+    return of(this.people);
+  }
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  constructor() { }
+}
+```
