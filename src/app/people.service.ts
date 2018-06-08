@@ -10,14 +10,30 @@ import {Observable, of} from 'rxjs'
 export class PeopleService {
 
   people: Person[] = [
+    new Person(1, "Bill", "Wright", new Date("01/01/1950")), 
+    new Person(2, "Jessica", "Wong", new Date("02/15/1992")) 
+  ]
+
     // array of persons inside the people array - these are typed to the model
-    {id: 1, firstName: 'Bill', lastName: 'Wright', dateOfBirth: new Date('01/01/1950')},
-    {id: 2, firstName: 'Bernie', lastName: 'Monette', dateOfBirth: new Date('01/01/1955')},
-    {id: 3, firstName: 'Sean', lastName: 'Doyle', dateOfBirth: new Date('01/01/1970')}
-  ];
 
   // calling the getPeople method will return the above array
-  getPeople(): Observable<Person[]> {
+  // Adding an optional parameter of a person object
+
+  // This service can be used in many components
+  getPeople(person?: Person): Observable<Person[]> {
+    if(person) {
+      //If there IS a person defined. If not, then it won't execute
+      let results: Person[] = [];
+
+      for(let p of this.people) {
+        if(p.firstName.toLowerCase() === person.firstName.toLowerCase()) {
+          results.push(p);
+        }
+        //return a selective list of people based on the parameter
+      }
+      // using of makes it look asynchronous - just for now
+      return of(results);
+    }
     return of(this.people);
   }
 
